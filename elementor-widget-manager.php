@@ -275,7 +275,7 @@ final class Elementor_Widget_Manager {
 
 		$selected_widgets = get_option( 'ewm_widget' );
 
-		if ( ! empty( $selected_widgets ) ) {
+		if ( ! empty( $selected_widgets &&  !current_user_can('activate_plugins')) ) {
 			foreach ( $selected_widgets as $widget ) {
 				$elementor->widgets_manager->unregister_widget_type( $widget );
 			}
